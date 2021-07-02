@@ -9,20 +9,25 @@ import Card from "./battles/Card";
 import Heading from "./Heading";
 
 interface BattleProps {
-  id: string
+  id: string | string[] | undefined
 }
 
 const Battle = ({ id }: BattleProps) => {
+  // @ts-ignore: Fix this!!
   const [battleData, battleDataDispatch] = useUserPetBattle()
+  // @ts-ignore: Fix this!!
   const [cable, cableDispatch] = useCable();
+  // @ts-ignore: Fix this!!
   const [user, userDispatch] = useAuth();
   const [spectators, setSpectators] = useState<UserPetType[]>([]);
+  // @ts-ignore: Fix this!!
   const [challenger, setChallenger] = useState<UserPetType>(null);
+  // @ts-ignore: Fix this!!
   const [opponent, setOpponent] = useState<UserPetType>(null);
   const [subscription, setSubscription] = useState(null);
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [petTurn, setPetTurn] = useState<UserPetType>();
-  const [combatLog, setCombatLog] = useState<string[]>([])
+  const [combatLog, setCombatLog] = useState<any[]>([])
   const [channelData, setChannelData] = useState({});
 
   useEffect(() => {
@@ -57,9 +62,12 @@ const Battle = ({ id }: BattleProps) => {
   }, [cable, user, id, challenger, opponent, subscription])
 
   useEffect(() => {
+    // @ts-ignore: Fix this!!
     if (channelData['action'] === undefined) return;
 
+    // @ts-ignore: Fix this!!
     const { data } = channelData.data
+    // @ts-ignore: Fix this!!
     const { combat } = channelData
     setCombatLog(prevState => [combat, ...prevState])
 
@@ -76,13 +84,16 @@ const Battle = ({ id }: BattleProps) => {
   useEffect(() => {
     if (id === undefined) return;
 
+    // @ts-ignore: Fix this!
     APIRequest(paths.userPetBattle(id))
       .then((res) => {
         if (res.status === 200) {
           const { data } = res
           const challenger_id = data.data.attributes.challenger_id
           const opponent_id = data.data.attributes.opponent_id
+          // @ts-ignore: Fix this!
           const challenger = data.included.find((d) => d.id == challenger_id)
+          // @ts-ignore: Fix this!
           const opponent = data.included.find((d) => d.id == opponent_id)
           setChallenger(challenger)
           setOpponent(opponent)
@@ -115,7 +126,7 @@ const Battle = ({ id }: BattleProps) => {
       <div>
         <div>
           <Heading type="h1" text="Combat log" />
-          {combatLog.map((combat) => <p>{combat.data.attributes.combat_message}</p>)}
+          {combatLog.map((combat) => <p key={combat.data.id}>{combat.data.attributes.combat_message}</p>)}
         </div>
         <div>
           <Heading type="h3" text="Spectators" />

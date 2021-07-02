@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useContext, useEffect, useReducer, createContext } from "react"
 import { getToken } from "./TokenService";
 

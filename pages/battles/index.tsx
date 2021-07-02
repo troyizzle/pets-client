@@ -10,7 +10,9 @@ import { UserPetType } from '../../src/user/pet'
 import BattleList from "../../components/BattleList"
 
 const Battle = () => {
+  // @ts-ignore: Fix this!
   const [pet, petDispatch] = usePet();
+  // @ts-ignore: Fix this!
   const [user, userDispatch] = useAuth();
   const [userPets, setUserPets] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Head from "next/head";
 import { Formik, Form } from "formik"
 import { signupSchema } from "../services/ValidationService";

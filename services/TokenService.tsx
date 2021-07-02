@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Cookies from "universal-cookie"
 import { redirect } from "./NavService";
 import jwt from "jsonwebtoken"

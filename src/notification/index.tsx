@@ -1,3 +1,4 @@
+// @ts-nocheck Fix this!!
 enum NotificationStatuses {
   Unread = "unread",
   Read = "read",

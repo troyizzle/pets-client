@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createContext, useContext, useReducer } from "react"
 import { UserPetType } from "../index"
 

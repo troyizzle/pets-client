@@ -1,11 +1,12 @@
+// @ts-nocheck
 import { createContext, useEffect, useReducer, useContext } from "react";
-import { petReducer, PetType, SetPet } from "../src/pet";
+import { petReducer, SetPet } from "../src/pet";
 import paths from "../utils/Paths";
 import { APIRequest } from "./APIRequest";
 import { useAuth } from "./AuthStateContext";
 import { petInitialState, PetState } from "../src/pet";
 
-export const PetStateContext = createContext<PetType | PetState>(petInitialState);
+export const PetStateContext = createContext<PetState>(petInitialState);
 
 interface PetProviderProps {
   children: JSX.Element

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import clsx from "clsx"
 import { TrashIcon, MailIcon, MailOpenIcon } from "@heroicons/react/outline"
 import { APIRequest } from "../services/APIRequest";

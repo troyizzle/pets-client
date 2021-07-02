@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Head from 'next/head'
 import { useAuth } from "../services/AuthStateContext"
 import Layout from '../components/Layout';

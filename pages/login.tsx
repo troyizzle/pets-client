@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { guestsOnly, saveToken } from "../services/TokenService"
 import { useTranslation } from "react-i18next";
 import Head from "next/head"

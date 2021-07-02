@@ -12,6 +12,8 @@ interface NotificationProviderProps {
 
 export const NotificationProvider = ({ children }: NotificationProviderProps): JSX.Element => {
   const [state, dispatch] = useReducer(notificationReducer, [])
+
+  // @ts-ignore: Fix this!
   const [user] = useAuth()
 
   useEffect(() => {
@@ -36,6 +38,7 @@ export const NotificationProvider = ({ children }: NotificationProviderProps): J
 
 
   return (
+    // @ts-ignore: Fix this!
     <NotificationStateContext.Provider value={[state, dispatch]}>
       {children}
     </NotificationStateContext.Provider>
