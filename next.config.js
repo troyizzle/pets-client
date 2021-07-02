@@ -5,7 +5,7 @@ module.exports = {
       "localhost",
       "tailwindui.com",
       "images.unsplash.com",
-      "https://gizmo-pets-api.herokuapp.com",
+      "gizmo-pets-api.herokuapp.com",
     ],
   },
 };
