@@ -6,7 +6,7 @@ interface LayoutProps {
 
 export default function Layout(props: LayoutProps): JSX.Element {
   return (
-    <div className="mx-auto bg-gray-700 md:h-screen h-full">
+    <div className="mx-auto bg-gray-700">
       <Navbar />
       <div className="px-4">
         {props.children}

@@ -1,7 +1,7 @@
 import { useEffect, createContext, useReducer, useContext } from "react";
 import paths from "../utils/Paths";
 import { APIRequest } from "./APIRequest";
-import { getToken } from "./TokenService";
+import { getToken, removeToken } from "./TokenService";
 import { User, userReducer, initialUserState, SetAuth } from "../src/user";
 
 export const AuthStateContext = createContext<User | {}>({});
@@ -25,6 +25,10 @@ export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
       }
     })
       .catch((err) => {
+        // TODO: Change this?
+        if (err.response.data.error == "Signature has expired") {
+          removeToken()
+        }
         console.log("Auth provider error", err)
       })
   }, [jwt_token])

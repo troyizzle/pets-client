@@ -18,6 +18,7 @@ const Battle = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    // TODO: Change this API
     APIRequest(paths.userPets)
       .then((res) => {
         if (res.status === 200) {

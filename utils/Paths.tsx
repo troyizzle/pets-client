@@ -4,6 +4,7 @@ const paths = {
   login: "api/login",
   myNotifications: "api/user/notifications/me",
   myPet: "api/user/pets/me",
+  myPetFood: "api/user/pets/food",
   pets: "api/pets",
   createUserPet: "api/user/pets",
   userPets: "api/user/pets",
